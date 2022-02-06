@@ -1,0 +1,12 @@
+name: rl
+dependencies:
+  - pip
+  - pip:
+      - numpy
+      - tensorflow
+      - torch
+      - gym
+      - "gym[atari]"
+      - atari-py
+      - "ray[rllib]"
+      - jupyterlab
