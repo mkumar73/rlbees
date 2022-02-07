@@ -3,8 +3,8 @@ import gym
 # get the Pong-v0 environment instance
 env = gym.make('Pong-v0')
 
-# instantiate the wrapper used for monitoring, the recoding will be saved in '../recording/pong/' directory
-env = gym.wrappers.Monitor(env, '../recordings/pong/', force=True)
+# instantiate the wrapper used for monitoring, the recoding will be saved in '../recording/basics/pong/' directory
+env = gym.wrappers.Monitor(env, '../recordings/basics/pong/', force=True)
 
 # you need reset the environment before you begin to interact with
 env.reset()
