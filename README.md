@@ -1,2 +1,3 @@
-# rlbees
-Reinforecement Learning Bees
+# Reinforcement Learning Bees (RLB)
+
+Unwrapping intricacies of RL one step at a time...
