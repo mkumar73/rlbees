@@ -7,5 +7,6 @@ dependencies:
       - torch # will be used for DRL (Deep RL)
       - gym # default gym package (contain almost 110 RL environment)
       - "gym[atari]" # separate installation for all Atari games environment provided by ALE
+      - atari-py # it contains necessary roms for Atari games, check site-packages/atari_py/atari_roms
       - "ray[rllib]" # RL framework provided by Ray
       - jupyterlab
