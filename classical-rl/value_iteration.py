@@ -3,7 +3,18 @@ import gym
 
 
 class ValueIteration(object):
-    def __init__(self, ENV_NAME, GAMMA, iterations=1000):
+    def __init__(self,
+                 ENV_NAME: str,
+                 GAMMA: int,
+                 iterations=1000):
+        """
+        Value iteration class
+
+        Args:
+            ENV_NAME (string): Gym env name
+            GAMMA (int): discount factor
+            iterations (int, optional): number of iteration to optimize value table. Defaults to 1000.
+        """
         self.env = gym.make(ENV_NAME)
         self.env_name = ENV_NAME
 
@@ -29,8 +40,10 @@ class ValueIteration(object):
         self.env.reset()
 
     def value_table_calculation(self):
-        """
-        return: optimized value table
+        """Optimize value table
+
+        Returns:
+            array: optimal value table
         """
         for iteration in range(self.n_iterations):
             # with every iteration, the final value table will initiated with best values from last iteration
@@ -53,9 +66,13 @@ class ValueIteration(object):
         return self.final_value_table
 
     def policy_extraction(self, value_table):
-        """
-        input: optimized value table
-        return: optimal policy
+        """Extration optimal policy
+
+        Args:
+            value_table (array): optimized value table
+
+        Returns:
+            array: optimal policy
         """
         for state in range(self.state_space):
             self.final_q_table = [sum([prob * (reward + self.gamma * value_table[next_state])
@@ -69,6 +86,11 @@ class ValueIteration(object):
         return self.policy
 
     def understand_agent_transition(self, policy):
+        """Illustrate how the action state transition happens using optimal policy
+
+        Args:
+            policy (arrary): optimal policy
+        """
         for state, action in enumerate(policy):
             print(f'State: {state}, Action: {action}')
             print(self.env.P[state][action])
