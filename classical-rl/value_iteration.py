@@ -5,7 +5,7 @@ import gym
 class ValueIteration(object):
     def __init__(self,
                  ENV_NAME: str,
-                 GAMMA: int,
+                 GAMMA: float,
                  iterations=1000):
         """
         Value iteration class
