@@ -75,6 +75,8 @@ class PolicyIteration(object):
             # compare values for each state, if they are almost same, no need to iterate further
             # np.fabs is used to compare element wise comparison
             if np.sum(np.fabs(self.final_value_table - self.initial_value_table)) <= self.cuttoff:
+                print(
+                    f'Iteration required for optimizing value table: {iteration}')
                 break
         return self.final_value_table
 
@@ -101,7 +103,7 @@ class PolicyIteration(object):
         which returns the optimal policy
 
         Returns:
-            _type_: _description_
+            array: final policy
         """
         for iteration in range(self.n_iterations):
             self.initial_policy = np.copy(self.final_policy)
@@ -111,8 +113,11 @@ class PolicyIteration(object):
             self.policy_extraction(optimal_value_table)
 
             if np.sum(np.fabs(self.final_policy - self.initial_policy)) == 0:
+                print(
+                    f'Iteration required for optimizing final policy: {iteration}')
                 break
-        print(f'Final policy for the {self.env_name}:\n {self.final_policy}')
+        print(
+            f'Final policy for the {self.env_name}:\n {self.final_policy} using Policy Iteration method')
         return self.final_policy
 
     def understand_agent_transition(self, policy):
@@ -137,4 +142,4 @@ if __name__ == "__main__":
 
     policy_iteration = PolicyIteration(GYM_ENV, GAMMA)
     optimal_policy = policy_iteration.policy_optimization()
-    policy_iteration.understand_agent_transition(optimal_policy)
+    # policy_iteration.understand_agent_transition(optimal_policy)
