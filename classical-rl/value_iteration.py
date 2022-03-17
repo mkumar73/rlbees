@@ -34,6 +34,7 @@ class ValueIteration(object):
 
         # initialize policy with zeros, means 1st action from action space
         # it could be any action from the action state
+        # very important: this policy is never used for during optimization process unlike policy iteration
         self.policy = np.zeros(self.state_space)
 
         # reset the environment on initialization

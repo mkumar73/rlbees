@@ -36,7 +36,8 @@ class PolicyIteration(object):
         # it could be any action from the action state
         self.initial_policy = np.zeros(self.state_space)
 
-        # at start, initial and final policy is same, the policy is gradually optimized
+        # at start, initial and final policy is same,
+        # initial policy is gradually optimized, consider this as on-policy method
         self.final_policy = np.copy(self.initial_policy)
 
         # reset the environment on initialization
